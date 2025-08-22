@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "http://localhost:9090/com.amazingcode.in",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

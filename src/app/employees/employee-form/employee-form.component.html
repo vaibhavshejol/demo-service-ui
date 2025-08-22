@@ -1,0 +1,58 @@
+<div class="form-container">
+  <h2 class="form-title">{{ id ? 'Edit' : 'Add' }} Employee</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="employee-form">
+    <!-- First Name -->
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input id="firstName" formControlName="firstName" placeholder="Enter first name" />
+      <small *ngIf="form.get('firstName')?.invalid && form.get('firstName')?.touched">
+        First name is required.
+      </small>
+    </div>
+
+    <!-- Last Name -->
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input id="lastName" formControlName="lastName" placeholder="Enter last name" />
+      <small *ngIf="form.get('lastName')?.invalid && form.get('lastName')?.touched">
+        Last name is required.
+      </small>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email" placeholder="example@domain.com" />
+      <small *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+        Please enter a valid email.
+      </small>
+    </div>
+
+    <!-- Department -->
+    <div class="form-group">
+      <label for="department">Department</label>
+      <input id="department" formControlName="department" placeholder="Enter department" />
+      <small *ngIf="form.get('department')?.invalid && form.get('department')?.touched">
+        Department is required.
+      </small>
+    </div>
+
+    <!-- Phone -->
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input id="phone" formControlName="phone" placeholder="Enter phone number" />
+      <small *ngIf="form.get('phone')?.invalid && form.get('phone')?.touched">
+        Phone is required.
+      </small>
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-actions">
+      <button type="submit" [disabled]="form.invalid" class="btn-primary">
+        {{ id ? 'Update' : 'Create' }}
+      </button>
+      <a routerLink="/employees" class="btn-secondary">Cancel</a>
+    </div>
+  </form>
+</div>
